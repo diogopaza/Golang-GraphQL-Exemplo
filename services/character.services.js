@@ -1,6 +1,7 @@
 const jsdom = require('jsdom')
 const { JSDOM } = jsdom
-const { getTextContent,getDomFromUrl} = require('../utils/dom.utils')
+const { getDomFromUrl} = require('../utils/dom.utils')
+const Character = require('../models/character')
 
 const getCharacterInfos = async (playerName ='') =>{
     if ( playerName.length == 0 )
@@ -11,11 +12,11 @@ const getCharacterInfos = async (playerName ='') =>{
          throw new Error('Url vazia')
         
     const dom = await getDomFromUrl(url)
+    const character =new Character(dom)
+    character.name
+    character.sex
 
-    const playerNameSelector = 'body > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(2)'
-    player = getTextContent(dom,playerNameSelector)
-    console.log(player)
-             
+                 
 }
 
 getCharacterInfos('hue proliferator')
