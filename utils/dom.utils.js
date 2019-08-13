@@ -1,6 +1,7 @@
 const jsdom = require('jsdom')
 const { JSDOM } = jsdom
 
+
 const getTextContent =(dom={}, selector='') => {
     if(dom.window == undefined)
         throw new Error('DOM must contains a window property')
