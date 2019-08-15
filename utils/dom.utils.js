@@ -8,7 +8,10 @@ const getTextContent =(dom={}, selector='') => {
     if(selector.length == 0)
         throw new Error('Selector is required')
     
-    return dom.window.document.querySelector(selector).textContent
+    if ( dom.window.document.querySelector(selector) != null )
+        return dom.window.document.querySelector(selector).textContent
+    return false    
+
 }
 
 const getDomFromUrl = (url ='') =>{

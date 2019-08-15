@@ -36,7 +36,7 @@ class Character{
       get world() {
         const playerNameSelector = `body > table:nth-child(1) > tbody > tr:nth-child(8) > td:nth-child(2)`
         const world = getTextContent(this.dom,playerNameSelector)
-        return worls
+        return world
       }
       get residence() {
         const playerNameSelector = `body > table:nth-child(1) > tbody > tr:nth-child(9) > td:nth-child(2)`
@@ -58,13 +58,13 @@ class Character{
         return {
           name: this.name,
           sex: this.sex,
-          //vocation: this.vocation,
-          //level: this.level,
-          //achievementPoints: this.achievementPoints,
-          //world: this.world,
-          //residence: this.residence,
-          //lastLogin: this.lastLogin,
-          //accountStatus: this.accountStatus,
+          vocation: this.vocation,
+          level: this.level,
+          achievementPoints: this.achievementPoints,
+          world: this.world,
+          residence: this.residence,
+          lastlogin: this.lastLogin,
+          accountStatus: this.accountStatus,
         }
       }
     

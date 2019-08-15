@@ -1,4 +1,5 @@
 const { GraphQLSchema, GraphQLObjectType,GraphQLString } = require('graphql')
+const {getCharacterInfos} = require('./services/character.services')
 
 const CharacterType = new GraphQLObjectType({
     name:'character',
@@ -43,7 +44,6 @@ const CharacterType = new GraphQLObjectType({
 })
 
 
-
 module.exports = new GraphQLSchema({
     query: new GraphQLObjectType({
         name:'player',
@@ -57,19 +57,8 @@ module.exports = new GraphQLSchema({
                 type:GraphQLString           
               },
           },
-          resolve:(root, args) =>({
-            name:'Diogo',
-            sex:'male',
-            vocation:'Software',
-            level:'123',
-            achievementPoints:'62',
-            world:'Guardia',
-            residence:'Thais',
-            lastlogin:'Feb 19 2017',
-            accountStatus:'Free Account'
-
-          }),
-        }, 
-        })
+          resolve:(root, args) => getCharacterInfos("hue proliferator")
+          },
+        }),
     }),
 })
